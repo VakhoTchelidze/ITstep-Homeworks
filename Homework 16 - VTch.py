@@ -78,14 +78,21 @@ class Basket:
 
     def total_price(self,price_list):
         total_cost = 0
-        for i in price_list.keys():
-            if i in self.items:
+        for i in self.items.keys():
+            if i in price_list:
                 try:
-                    print(f'{i} --- {self.items[i]}')
+                    print(f'{i} --- Q: {self.items[i]} , Price: {price_list[i]}, Total cost: {price_list[i]*self.items[i]} ')
                     total_cost += price_list[i]*self.items[i]
                 except:
                     pass
-        print(f'Total cost: {total_cost}')
+            else:
+                print(f'{i} --- not in price list')
+        print(f'Total cost: {round(total_cost, 2)}')
+
+    def list(self):
+        print('Product list in basket:')
+        for key, val in self.items.items():
+            print(f'{key} ----- {val}')
 
 
 prices = {"apple": 0.5, "banana": 0.3, "orange": 0.4}
@@ -95,11 +102,13 @@ basket = Basket()
 
 basket.add_item("apple", 3)
 basket.add_item("banana", 2)
+basket.add_item("pomodoro", 2)
 
 basket.remove_item("apple", 1)
 
 basket.total_price(prices)
 
+basket.list()
 
 
 
