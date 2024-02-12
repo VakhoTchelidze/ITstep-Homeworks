@@ -64,55 +64,81 @@ class LinkedList:
             while i != index-1:
                 current_node = current_node.next
                 i += 1
-            ვაილ ლუპის ბოლოს ქურენთ ნოუდში გვექნება
+            # ვაილ ლუპის ბოლოს ქურენთ ნოუდში გვექნება ის ელემენტი რომლის შემდეგაც უნდა ჩაისვას ჩენ მიერ ახლად შექმნილი ელემენტი
 
+            # ნიუ ნოუდში ვინახავთ ახალ ელემენტს
             new_node = ListNode(value)
+            # ახალი ელემენტის მონდევნო ელემენტები იქნება არსებული ნოუდის მონდევნო ელემენტები
             new_node.next = current_node.next
+            #და არსებულის  მომდევნოზე ჩაისმება ახალი ელემენტის
             current_node.next = new_node
+            #აქ გავზრდის ლისტის სიგრძეს
             self.length += 1
 
+        # თუ ჩვენ მიერ მითითებული ინდექსი მეტია ლისტის ზომაზე
         elif index > last_index + 1 or index < 0:
             print("Index Is Out Of Range")
 
 
+    # სიიდან წაშლის ფუქნცია - აქაც როგორც ჩამატაბის ფინქვიაში გვაქვს სამი სცენარი
     def remove(self, index):
+        # ვითვლით ინდექსებს
         last_index = self.length - 1
+        # ეს ცვლადი საჭიროა ინდექსაციისთვის
         i = 0
 
         if index == 0:
+            # თუ პირველი ელემენტის წაშლა გვინდა უბრალოდ ვეუბნებით რომ ახალი ჰედ ელემენტი უნდა გახდეს არსებული ჰედ ელემენტის მონდევნო ელემენტი
             self.head = self.head.next
+            #აქ ვამცირებთ ლისტის ზომას
             self.length -= 1
 
+        #ბოლო ელემენტის ამოშლა
         elif index == last_index:
+            # ქურენთ ნოუდში ვინახავთ საწყის ელემენტს რომ შევძლოთ ბოლოს წინა ელემენტზე მოხვედრა
             current_node = self.head
 
+            # ვაილ ლუპი ეშვება იქამდე სანამ ბოლოს წინა ელემენტზე არ მოვხვდებით
             while i < last_index - 1:
                 current_node = current_node.next
                 i += 1
 
+            # ბოლოს წინა ელემენტის მონდევნო ლემენტს ვანაცვლებთ ცარიელი სიმრავლით
             current_node.next = None
             self.length -= 1
 
+        #თუ ამოსაშლელი ელემენტი არც ჰედია და არც ბოლო
         elif 0 < index < last_index:
+            # ვინახავთ ქურენტ ნოუდ ცვლადში საწყის ელემენტს რომ შევძლოთ გადასვლა სასურველ ელემენტზე
             current_node = self.head
+
+            # ეშვება ვაილ ლუპი არ მოვხვდებით სასურველი ელემენტის წიინა ელემენტზე
             while i != index - 1:
                 current_node = current_node.next
                 i += 1
 
+            # წაშლილი ელემენტის ცვლადში ვინახავთ იმ ელემენტს რომლის წაშლაც გვინდა ანუ ქურენტ-ელემენტის მომდევნო ელემენტს
             deleted_element = current_node.next
+            #ქურენტ ელემენტის მომდევნო ელემენს ვხდით წასაშლელი ელემენტის მომდევნო ელემენტს
             current_node.next = deleted_element.next
+            # სიის ზომას ვაცირებთ ერთით
             self.length -= 1
 
+
+        # თუ ჩვენ მიერ მითითებული ინდექსი სიის ზომის გარეთაა
         elif index > last_index + 1 or index < 0:
             print("Index Is Out Of Range")
 
 
 
-
+    # ამ ფუნქციას ვიყენებთ ლისტის დაპრინტვისთვის
     def printList(self):
+        # ქურენთ ნოუდში ვინახავთ ჰედს რომ შევძლოთ იტერაცია
         current_node = self.head
+        # ვპრინტავთ პირველი ელემენტის მონაცემს
         print(f"{current_node.value} ->", end="")
 
+        # შემდეგ ვაილ ლუპით გადავდივათ შემდეგ ელემენტებზე სანამ ბოლოზე არ მივალთ და თან ვპრინტავთ
         while current_node.next is not None:
             current_node = current_node.next
             print(f" {current_node.value} ->", end="")
