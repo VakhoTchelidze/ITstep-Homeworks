@@ -1,0 +1,50 @@
+h1 {
+    color: yellow;
+    background-color: green;
+}
+
+p {
+    background-color: gray;
+}
+
+.home-button {
+    background-color: rgb(10,102,194);
+    border: none;
+    color: white;
+    height: 40px;
+    width: 240px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    margin-right: 8px
+    transition: background-color 0.15s
+    }
+
+
+.about-button {
+    background-color: white;
+    border-color: rgb(41,118,211);
+    border-style: solid;
+    border-width: 1px;
+    color: rgb(41,118,211);
+    height: 36px;
+    width: 62px;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-right: 8px;
+    transition: background-color 1.15s,
+        color 0.15s;
+    }
+
+.contact-button {
+    background-color: rgb(46,164,79);
+    color: white;
+    border: none;
+    height: 30px;
+    width: 80px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 8px;
+    font-weight: bold;
+    }
