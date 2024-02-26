@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+</head>
+<body>
+    <h1>About Us</h1>
+    <p>This is the about page of our Flask app.</p>
+
+    <button class="home-button">
+
+        <a href="{{ url_for('home') }}">Home</a>
+
+    </button>
+
+    <button class="contact-button">
+
+        <a href="{{ url_for('contact') }}">Contact</a>
+
+    </button>
+
+</body>
+</html>
