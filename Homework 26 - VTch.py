@@ -46,8 +46,3 @@ class VipDiscoundt(Discount):
         else:
             return self.price
 
-
-
-
-
-
